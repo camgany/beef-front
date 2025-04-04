@@ -25,10 +25,10 @@ const TurnosPersonal = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTurno, setNewTurno] = useState({
     idPersonal: "",
-    fecha: "2025-04-10T22:06:00", // Formato de fecha correcto
+    fecha: "2025-04-10T22:06:00.000Z", // Fecha como texto plano
     nombreTurno: "",
-    horaEntrada: "14:00:00", // Formato de hora correcto
-    horaSalida: "20:00:00", // Formato de hora correcto
+    horaEntrada: "14:00:00", // Hora como texto plano
+    horaSalida: "20:00:00", // Hora como texto plano
     observacion: "",
     estado: true,
   });
@@ -57,10 +57,10 @@ const TurnosPersonal = () => {
     setSelectedTurno(null);
     setNewTurno({
       idPersonal: "",
-      fecha: "2025-04-10T22:06:00", // Fecha por defecto en formato correcto
+      fecha: "2025-04-10T22:06:00.000Z", // Fecha por defecto en formato texto
       nombreTurno: "",
-      horaEntrada: "14:00:00", // Hora por defecto
-      horaSalida: "20:00:00", // Hora por defecto
+      horaEntrada: "14:00:00", // Hora por defecto en formato texto
+      horaSalida: "20:00:00", // Hora por defecto en formato texto
       observacion: "",
       estado: true,
     });
@@ -79,10 +79,10 @@ const TurnosPersonal = () => {
     try {
       const formattedTurno = {
         idPersonal: newTurno.idPersonal,
-        fecha: newTurno.fecha, // Mantener la fecha en formato correcto
+        fecha: newTurno.fecha, // Fecha en texto plano
         nombreTurno: newTurno.nombreTurno,
-        horaEntrada: newTurno.horaEntrada, // Hora en formato correcto
-        horaSalida: newTurno.horaSalida, // Hora en formato correcto
+        horaEntrada: newTurno.horaEntrada, // Hora en texto plano
+        horaSalida: newTurno.horaSalida, // Hora en texto plano
         observacion: newTurno.observacion,
         estado: newTurno.estado,
       };
@@ -135,10 +135,10 @@ const TurnosPersonal = () => {
               <TableRow key={turno.idTurnoPersonal}>
                 <TableCell>{turno.idTurnoPersonal}</TableCell>
                 <TableCell>{turno.idPersonal}</TableCell>
-                <TableCell>{new Date(turno.fecha).toLocaleDateString()}</TableCell>
+                <TableCell>{turno.fecha}</TableCell> {/* Fecha como texto */}
                 <TableCell>{turno.nombreTurno}</TableCell>
-                <TableCell>{turno.horaEntrada}</TableCell>
-                <TableCell>{turno.horaSalida}</TableCell>
+                <TableCell>{turno.horaEntrada}</TableCell> {/* Hora Entrada como texto */}
+                <TableCell>{turno.horaSalida}</TableCell> {/* Hora Salida como texto */}
                 <TableCell>{turno.observacion}</TableCell>
                 <TableCell>{turno.estado ? "Activo" : "Desactivado"}</TableCell>
                 <TableCell>

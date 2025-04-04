@@ -20,6 +20,7 @@ import Productos from '../tables/Productos';
 import Proveedores from '../tables/Proveedores';
 import Reservas from '../tables/Reservas';
 import TurnosPersonal from '../tables/TurnoPersonal';
+import Ventas from '../tables/Ventas';
 
 
 const TabPanel = ({ value, index, children }) => {
@@ -59,6 +60,7 @@ const Home = () => {
             <Tab label="Proveedores" />
             <Tab label="Reservas" />
             <Tab label="Turnos Personal" />
+            <Tab label="Ventas" />
             
           </Tabs>
         </AppBar>
@@ -119,6 +121,9 @@ const Home = () => {
         </TabPanel>
         <TabPanel value={value} index={18}>
           <TurnosPersonal />
+        </TabPanel>
+        <TabPanel value={value} index={19}>
+          <Ventas />
         </TabPanel>
 
       </Container>

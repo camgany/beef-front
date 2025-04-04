@@ -22,6 +22,9 @@ import Reservas from '../tables/Reservas';
 import TurnosPersonal from '../tables/TurnoPersonal';
 import Ventas from '../tables/Ventas';
 import WeatherForecast from '../tables/WeatherForecast'; 
+import FlujoCompleto from '../tables/FlujoCompleto';
+import FlujoCompletoCompra from '../tables/FlujoCompletoCompra';
+import VentaFlujo from '../tables/VentaFlujo';
 
 const TabPanel = ({ value, index, children }) => {
   return value === index ? <Box p={3}>{children}</Box> : null;
@@ -69,7 +72,12 @@ const Home = () => {
             <Tab label="Reservas" />
             <Tab label="Turnos Personal" />
             <Tab label="Ventas" />
-            <Tab label="Weather Forecast" /> 
+            <Tab label="Weather Forecast" />
+            <Tab label="Flujo Completo" /> 
+            <Tab label="Flujo Completo Compra" />
+            <Tab label="Venta Flujo" />
+
+
           </Tabs>
         </AppBar>
 
@@ -135,7 +143,15 @@ const Home = () => {
         </TabPanel>
         <TabPanel value={value} index={20}>
           <WeatherForecast />
-
+        </TabPanel>
+        <TabPanel value={value} index={21}>
+          <FlujoCompleto />
+        </TabPanel>
+        <TabPanel value={value} index={22}>
+          <FlujoCompletoCompra />
+        </TabPanel>
+        <TabPanel value={value} index={23}>
+          <VentaFlujo />
         </TabPanel>
 
       </Container>

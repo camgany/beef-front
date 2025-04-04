@@ -82,9 +82,15 @@ const Pedidos = () => {
   return (
     <Container>
       <Typography variant="h4" gutterBottom>Pedidos</Typography>
-      <Button variant="contained" onClick={() => handleOpenDialog()}>Añadir Pedido</Button>
+      <Button 
+        variant="contained" 
+        onClick={() => handleOpenDialog()} 
+        sx={{ backgroundColor: "#7b4d0a", "&:hover": { backgroundColor: "#6a3b08" } }}
+      >
+        Añadir Pedido
+      </Button>
 
-      <TableContainer component={Paper} sx={{ mt: 4 }}>
+      <TableContainer component={Paper} sx={{ mt: 4, backgroundColor: "#fae5c6" }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -107,7 +113,11 @@ const Pedidos = () => {
                 <TableCell>{pedido.total}</TableCell>
                 <TableCell>{pedido.estado}</TableCell>
                 <TableCell>
-                  <Button variant="outlined" onClick={() => handleOpenDialog(pedido)}>
+                  <Button 
+                    variant="outlined" 
+                    onClick={() => handleOpenDialog(pedido)} 
+                    sx={{ backgroundColor: "#7b4d0a", "&:hover": { backgroundColor: "#6a3b08" } }}
+                  >
                     Ver / Editar
                   </Button>
                 </TableCell>
@@ -163,7 +173,11 @@ const Pedidos = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>Cancelar</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button 
+            onClick={handleSave} 
+            variant="contained" 
+            sx={{ backgroundColor: "#7b4d0a", "&:hover": { backgroundColor: "#6a3b08" } }}
+          >
             {isEditing ? "Guardar Cambios" : "Añadir"}
           </Button>
         </DialogActions>

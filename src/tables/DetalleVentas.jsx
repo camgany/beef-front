@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
-import api from "../axiosConfig"; 
+import api from "../axiosConfig";
 
 const DetalleVentas = () => {
   const [detalleVentas, setDetalleVentas] = useState([]);
@@ -85,11 +85,15 @@ const DetalleVentas = () => {
     <Container>
       <Typography variant="h4" gutterBottom>Detalle de Ventas</Typography>
 
-      <Button variant="contained" color="primary" onClick={handleOpenForm}>
+      <Button
+        variant="contained"
+        style={{ backgroundColor: "#7b4d0a", color: "white", marginBottom: "20px" }} // Botón marrón
+        onClick={handleOpenForm}
+      >
         Añadir Detalle de Venta
       </Button>
 
-      <TableContainer component={Paper} style={{ marginTop: 20 }}>
+      <TableContainer component={Paper} style={{ marginTop: 20, backgroundColor: "#fae5c6" }}> {/* Tabla con color crema */}
         <Table>
           <TableHead>
             <TableRow>
@@ -114,7 +118,7 @@ const DetalleVentas = () => {
                 <TableCell>
                   <Button
                     variant="outlined"
-                    color="primary"
+                    style={{ color: "#7b4d0a", borderColor: "#7b4d0a", marginRight: "10px" }} // Botón marrón
                     onClick={() => handleViewDetails(detalleVenta.idDetalleVenta)}
                   >
                     Ver Detalle
@@ -144,7 +148,7 @@ const DetalleVentas = () => {
           )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenDialog(false)} color="primary">Cerrar</Button>
+          <Button onClick={() => setOpenDialog(false)} style={{ color: "#7b4d0a" }}>Cerrar</Button>
         </DialogActions>
       </Dialog>
 
@@ -198,7 +202,11 @@ const DetalleVentas = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseForm} color="secondary">Cancelar</Button>
-          <Button onClick={handleSubmit} variant="contained" color="primary">
+          <Button
+            onClick={handleSubmit}
+            variant="contained"
+            style={{ backgroundColor: "#7b4d0a", color: "white" }} // Botón marrón
+          >
             Guardar
           </Button>
         </DialogActions>

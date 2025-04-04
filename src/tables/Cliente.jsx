@@ -83,15 +83,18 @@ const Cliente = () => {
       <Typography variant="h4" gutterBottom>Clientes</Typography>
       <Button
         variant="contained"
-        color="primary"
+        sx={{
+          backgroundColor: '#7b4d0a', // Color marrón para los botones
+          color: 'white',
+          marginBottom: '20px'
+        }}
         onClick={handleCreateNew}
-        style={{ marginBottom: "20px" }}
       >
         Añadir Cliente
       </Button>
 
       <TableContainer component={Paper}>
-        <Table>
+        <Table sx={{ backgroundColor: '#fae5c6' }}> {/* Color crema para el fondo de la tabla */}
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
@@ -119,7 +122,14 @@ const Cliente = () => {
                 <TableCell>
                   <Button
                     variant="outlined"
-                    color="primary"
+                    sx={{
+                      borderColor: '#7b4d0a',
+                      color: '#7b4d0a',
+                      '&:hover': {
+                        backgroundColor: '#7b4d0a',
+                        color: 'white'
+                      }
+                    }}
                     onClick={() => handleEdit(cliente.idCliente, cliente)}
                   >
                     Editar
@@ -192,8 +202,17 @@ const Cliente = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button onClick={() => setOpenDialog(false)} sx={{ backgroundColor: '#7b4d0a', color: 'white' }}>
+            Cancelar
+          </Button>
+          <Button 
+            onClick={handleSave} 
+            variant="contained" 
+            sx={{
+              backgroundColor: '#7b4d0a',
+              color: 'white'
+            }}
+          >
             {editMode ? "Guardar Cambios" : "Crear"}
           </Button>
         </DialogActions>

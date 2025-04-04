@@ -90,14 +90,13 @@ const DetalleCompra = () => {
       <Typography variant="h4" gutterBottom>Detalle de Compras</Typography>
       <Button
         variant="contained"
-        color="primary"
+        style={{ marginBottom: "20px", backgroundColor: "#7b4d0a", color: "white" }} // Marrón para el botón
         onClick={handleCreateNew}
-        style={{ marginBottom: "20px" }}
       >
         Añadir Detalle de Compra
       </Button>
 
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} style={{ backgroundColor: "#fae5c6" }}> {/* Color crema para la tabla */}
         <Table>
           <TableHead>
             <TableRow>
@@ -122,16 +121,15 @@ const DetalleCompra = () => {
                 <TableCell>
                   <Button
                     variant="outlined"
-                    color="primary"
+                    style={{ marginRight: "10px", color: "#7b4d0a", borderColor: "#7b4d0a" }} // Botón marrón
                     onClick={() => handleEdit(detalleCompra.idDetalleCompra, detalleCompra)}
                   >
                     Editar
                   </Button>
                   <Button
                     variant="outlined"
-                    color="secondary"
+                    style={{ color: "#7b4d0a", borderColor: "#7b4d0a" }} // Botón marrón
                     onClick={() => handleDesactivar(detalleCompra.idDetalleCompra)}
-                    style={{ marginLeft: "10px" }}
                   >
                     Desactivar
                   </Button>
@@ -189,8 +187,8 @@ const DetalleCompra = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button onClick={() => setOpenDialog(false)} style={{ color: "#7b4d0a" }}>Cancelar</Button>
+          <Button onClick={handleSave} variant="contained" style={{ backgroundColor: "#7b4d0a", color: "white" }}>
             {editMode ? "Guardar Cambios" : "Crear"}
           </Button>
         </DialogActions>

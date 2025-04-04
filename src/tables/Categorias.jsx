@@ -60,15 +60,18 @@ const Categorias = () => {
       <Typography variant="h4" gutterBottom>Categorías de Productos</Typography>
       <Button
         variant="contained"
-        color="primary"
         onClick={handleCreateNew}
-        style={{ marginBottom: "20px" }}
+        sx={{
+          backgroundColor: '#7b4d0a',
+          color: 'white',
+          marginBottom: '20px'
+        }}
       >
         Añadir Categoría
       </Button>
 
       <TableContainer component={Paper}>
-        <Table>
+        <Table sx={{ backgroundColor: '#fae5c6' }}>
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
@@ -84,8 +87,15 @@ const Categorias = () => {
                 <TableCell>
                   <Button
                     variant="outlined"
-                    color="primary"
                     onClick={() => handleEdit(categoria.idCategoria, categoria.nombre)}
+                    sx={{
+                      borderColor: '#7b4d0a',
+                      color: '#7b4d0a',
+                      '&:hover': {
+                        backgroundColor: '#7b4d0a',
+                        color: 'white'
+                      }
+                    }}
                   >
                     Editar
                   </Button>
@@ -103,13 +113,22 @@ const Categorias = () => {
             label="Nombre de la Categoría"
             fullWidth
             value={editMode ? editNombre : formData.nombre}
-            onChange={(e) => (editMode ? setEditNombre(e.target.value) : setFormData({ nombre: e.target.value }))}
+            onChange={(e) => (editMode ? setEditNombre(e.target.value) : setFormData({ nombre: e.target.value }))} 
             style={{ marginBottom: "10px" }}
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button onClick={() => setOpenDialog(false)} sx={{ backgroundColor: '#7b4d0a', color: 'white' }}>
+            Cancelar
+          </Button>
+          <Button 
+            onClick={handleSave} 
+            variant="contained" 
+            sx={{
+              backgroundColor: '#7b4d0a',
+              color: 'white'
+            }}
+          >
             {editMode ? "Guardar Cambios" : "Crear"}
           </Button>
         </DialogActions>

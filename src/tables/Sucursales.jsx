@@ -1,5 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Container, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+} from "@mui/material";
 import api from "../axiosConfig"; // Asegúrate de que esta importación sea correcta
 
 const Sucursales = () => {
@@ -15,7 +31,7 @@ const Sucursales = () => {
     try {
       const response = await api.get("/sucursales");
       setSucursales(response.data);
-      console.log("Sucursales obtenidas:", response.data);  // Aquí está el console.log
+      console.log("Sucursales obtenidas:", response.data);  
     } catch (error) {
       console.error("Error al obtener sucursales:", error);
     }
@@ -73,14 +89,13 @@ const Sucursales = () => {
       <Typography variant="h4" gutterBottom>Sucursales</Typography>
       <Button
         variant="contained"
-        color="primary"
+        sx={{ backgroundColor: "#7b4d0a", marginBottom: "20px" }} // Brown color for buttons
         onClick={handleOpenDialog}
-        style={{ marginBottom: "20px" }}
       >
         Añadir Sucursal
       </Button>
 
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ backgroundColor: "#fae5c6" }}> {/* Cream color for table */}
         <Table>
           <TableHead>
             <TableRow>
@@ -97,6 +112,7 @@ const Sucursales = () => {
                 <TableCell>
                   <Button
                     variant="contained"
+                    sx={{ backgroundColor: "#7b4d0a" }} // Brown color for buttons
                     color="secondary"
                     onClick={() => handleDesactivar(sucursal.idSucursal)}
                   >
@@ -123,7 +139,11 @@ const Sucursales = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>Cancelar</Button>
-          <Button onClick={handleCrearSucursal} variant="contained" color="primary">
+          <Button
+            onClick={handleCrearSucursal}
+            variant="contained"
+            sx={{ backgroundColor: "#7b4d0a" }} // Brown color for button
+          >
             Crear
           </Button>
         </DialogActions>

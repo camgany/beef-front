@@ -74,7 +74,11 @@ const MetodoPago = () => {
         Métodos de Pago
       </Typography>
 
-      <Button variant="contained" onClick={handleOpenAdd}>
+      <Button 
+        variant="contained" 
+        onClick={handleOpenAdd} 
+        sx={{ backgroundColor: '#7B4D0A', '&:hover': { backgroundColor: '#6A3B08' } }}
+      >
         Añadir Método de Pago
       </Button>
 
@@ -82,18 +86,22 @@ const MetodoPago = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Método</TableCell>
-              <TableCell>Acciones</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>ID</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Método</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Acciones</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {metodos.map((metodo) => (
               <TableRow key={metodo.idMetodoPago}>
-                <TableCell>{metodo.idMetodoPago}</TableCell>
-                <TableCell>{metodo.metodo}</TableCell>
-                <TableCell>
-                  <Button onClick={() => handleView(metodo)} variant="outlined">
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{metodo.idMetodoPago}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{metodo.metodo}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>
+                  <Button 
+                    onClick={() => handleView(metodo)} 
+                    variant="outlined" 
+                    sx={{ marginRight: 1 }}
+                  >
                     Ver
                   </Button>
                 </TableCell>
@@ -117,7 +125,11 @@ const MetodoPago = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseAdd}>Cancelar</Button>
-          <Button onClick={handleAddMetodo} variant="contained">
+          <Button 
+            onClick={handleAddMetodo} 
+            variant="contained"
+            sx={{ backgroundColor: '#7B4D0A', '&:hover': { backgroundColor: '#6A3B08' } }}
+          >
             Añadir
           </Button>
         </DialogActions>

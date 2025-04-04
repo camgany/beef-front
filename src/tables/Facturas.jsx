@@ -111,11 +111,16 @@ const Facturas = () => {
     <Container>
       <Typography variant="h4" gutterBottom>Facturas</Typography>
 
-      <Button variant="contained" color="primary" onClick={handleOpenForm}>
+      <Button 
+        variant="contained" 
+        color="primary" 
+        onClick={handleOpenForm} 
+        style={{ backgroundColor: "#7b4d0a" }} // Brown color for buttons
+      >
         Añadir Factura
       </Button>
 
-      <TableContainer component={Paper} style={{ marginTop: 20 }}>
+      <TableContainer component={Paper} style={{ marginTop: 20, backgroundColor: "#fae5c6" }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -140,6 +145,7 @@ const Facturas = () => {
                     variant="outlined"
                     color="primary"
                     onClick={() => handleViewDetails(factura.idFactura)}
+                    style={{ marginRight: 10 }}
                   >
                     Ver Detalle
                   </Button>
@@ -168,7 +174,7 @@ const Facturas = () => {
         </Table>
       </TableContainer>
 
-     
+      {/* Dialog to view details */}
       <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
         <DialogTitle>Factura</DialogTitle>
         <DialogContent>
@@ -189,6 +195,7 @@ const Facturas = () => {
         </DialogActions>
       </Dialog>
 
+      {/* Form to add or edit factura */}
       <Dialog open={openForm} onClose={handleCloseForm}>
         <DialogTitle>{facturaData ? "Modificar Factura" : "Añadir Factura"}</DialogTitle>
         <DialogContent>
@@ -237,7 +244,12 @@ const Facturas = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseForm} color="secondary">Cancelar</Button>
-          <Button onClick={facturaData ? handleEdit : handleSubmit} variant="contained" color="primary">
+          <Button 
+            onClick={facturaData ? handleEdit : handleSubmit} 
+            variant="contained" 
+            color="primary"
+            style={{ backgroundColor: "#7b4d0a" }} // Brown color for buttons
+          >
             {facturaData ? "Guardar Cambios" : "Guardar"}
           </Button>
         </DialogActions>

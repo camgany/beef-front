@@ -86,18 +86,14 @@ const Ventas = () => {
       if (isEditing) {
         await api.put(`/ventas/${selectedVenta.idVenta}`, { data });
       } else {
-        // Ajustamos el formato para el POST con el Token en headers
         await api.post("/ventas", {
-          headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcjEiLCJSb2wiOiI0IiwiZXhwIjoxNzQzNzM2ODgxLCJpc3MiOiJ3ZWJhcHBsaWNhdGlvbjEuY29tIiwiYXVkIjoid2ViYXBwbGljYXRpb24xLmNvbSJ9.du-x0u_OPZ97FDuPlaCFCpmnkbKkRFxKBdHAjFHTo-0", 
-          },
           data: {
             idCliente: newVenta.idCliente,
             idSucursal: newVenta.idSucursal,
             fechaVenta: newVenta.fechaVenta, // Fecha como string
             total: newVenta.total,
             estado: newVenta.estado,
-          }
+          },
         });
       }
       fetchVentas();
@@ -119,7 +115,13 @@ const Ventas = () => {
   return (
     <Container>
       <Typography variant="h4" gutterBottom>Ventas</Typography>
-      <Button variant="contained" onClick={() => handleOpenDialog()}>Añadir Venta</Button>
+      <Button
+        variant="contained"
+        onClick={() => handleOpenDialog()}
+        sx={{ backgroundColor: '#7b4d0a', '&:hover': { backgroundColor: '#6c3f07' } }}
+      >
+        Añadir Venta
+      </Button>
 
       <TableContainer component={Paper} sx={{ mt: 4 }}>
         <Table>
@@ -136,7 +138,7 @@ const Ventas = () => {
           </TableHead>
           <TableBody>
             {ventas.map((venta) => (
-              <TableRow key={venta.idVenta}>
+              <TableRow key={venta.idVenta} sx={{ backgroundColor: '#fae5c6' }}>
                 <TableCell>{venta.idVenta}</TableCell>
                 <TableCell>{venta.idCliente}</TableCell>
                 <TableCell>{venta.idSucursal}</TableCell>
@@ -144,10 +146,19 @@ const Ventas = () => {
                 <TableCell>{venta.total}</TableCell>
                 <TableCell>{venta.estado}</TableCell>
                 <TableCell>
-                  <Button variant="outlined" onClick={() => handleOpenDialog(venta)}>
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleOpenDialog(venta)}
+                    sx={{ backgroundColor: '#7b4d0a', '&:hover': { backgroundColor: '#6c3f07' } }}
+                  >
                     Ver / Editar
                   </Button>
-                  <Button variant="contained" color="error" onClick={() => handleCancelar(venta.idVenta)} sx={{ ml: 1 }}>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={() => handleCancelar(venta.idVenta)}
+                    sx={{ ml: 1, backgroundColor: '#7b4d0a', '&:hover': { backgroundColor: '#6c3f07' } }}
+                  >
                     Cancelar
                   </Button>
                 </TableCell>
@@ -211,7 +222,12 @@ const Ventas = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>Cancelar</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button
+            onClick={handleSave}
+            variant="contained"
+            color="primary"
+            sx={{ backgroundColor: '#7b4d0a', '&:hover': { backgroundColor: '#6c3f07' } }}
+          >
             {isEditing ? "Guardar Cambios" : "Añadir"}
           </Button>
         </DialogActions>

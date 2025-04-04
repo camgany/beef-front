@@ -89,31 +89,49 @@ const Pago = () => {
     <Container>
       <Typography variant="h4" gutterBottom>Pagos</Typography>
 
-      <Button variant="contained" onClick={() => setAddDialogOpen(true)}>Añadir Pago</Button>
+      <Button 
+        variant="contained" 
+        onClick={() => setAddDialogOpen(true)} 
+        sx={{ backgroundColor: '#7B4D0A', '&:hover': { backgroundColor: '#6A3B08' } }}
+      >
+        Añadir Pago
+      </Button>
 
       <TableContainer component={Paper} sx={{ mt: 3 }}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>ID Pedido</TableCell>
-              <TableCell>Método de Pago</TableCell>
-              <TableCell>Monto</TableCell>
-              <TableCell>Fecha de Pago</TableCell>
-              <TableCell>Acciones</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>ID</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>ID Pedido</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Método de Pago</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Monto</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Fecha de Pago</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Acciones</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {pagos.map((pago) => (
               <TableRow key={pago.idPago}>
-                <TableCell>{pago.idPago}</TableCell>
-                <TableCell>{pago.idPedido}</TableCell>
-                <TableCell>{pago.metodoPago}</TableCell>
-                <TableCell>{pago.monto}</TableCell>
-                <TableCell>{pago.fechaPago}</TableCell>
-                <TableCell>
-                  <Button variant="outlined" onClick={() => handleView(pago)}>Ver</Button>
-                  <Button variant="contained" onClick={() => handleEdit(pago)} sx={{ ml: 1 }}>Editar</Button>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{pago.idPago}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{pago.idPedido}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{pago.metodoPago}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{pago.monto}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{pago.fechaPago}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>
+                  <Button 
+                    variant="outlined" 
+                    onClick={() => handleView(pago)} 
+                    sx={{ marginRight: 1 }}
+                  >
+                    Ver
+                  </Button>
+                  <Button 
+                    variant="contained" 
+                    onClick={() => handleEdit(pago)} 
+                    sx={{ backgroundColor: '#7B4D0A', '&:hover': { backgroundColor: '#6A3B08' } }}
+                  >
+                    Editar
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
@@ -121,7 +139,7 @@ const Pago = () => {
         </Table>
       </TableContainer>
 
-      {/* Añadir */}
+      {/* Añadir Pago */}
       <Dialog open={addDialogOpen} onClose={() => setAddDialogOpen(false)}>
         <DialogTitle>Añadir Pago</DialogTitle>
         <DialogContent>
@@ -132,11 +150,17 @@ const Pago = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setAddDialogOpen(false)}>Cancelar</Button>
-          <Button variant="contained" onClick={handleAddPago}>Guardar</Button>
+          <Button 
+            variant="contained" 
+            onClick={handleAddPago} 
+            sx={{ backgroundColor: '#7B4D0A', '&:hover': { backgroundColor: '#6A3B08' } }}
+          >
+            Guardar
+          </Button>
         </DialogActions>
       </Dialog>
 
-      {/* Ver */}
+      {/* Ver Pago */}
       <Dialog open={viewDialogOpen} onClose={() => setViewDialogOpen(false)}>
         <DialogTitle>Detalles del Pago</DialogTitle>
         <DialogContent>
@@ -151,7 +175,7 @@ const Pago = () => {
         </DialogActions>
       </Dialog>
 
-      {/* Editar */}
+      {/* Editar Pago */}
       <Dialog open={editDialogOpen} onClose={() => setEditDialogOpen(false)}>
         <DialogTitle>Editar Pago</DialogTitle>
         <DialogContent>
@@ -162,7 +186,13 @@ const Pago = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setEditDialogOpen(false)}>Cancelar</Button>
-          <Button variant="contained" onClick={handleEditSave}>Guardar</Button>
+          <Button 
+            variant="contained" 
+            onClick={handleEditSave} 
+            sx={{ backgroundColor: '#7B4D0A', '&:hover': { backgroundColor: '#6A3B08' } }}
+          >
+            Guardar
+          </Button>
         </DialogActions>
       </Dialog>
     </Container>

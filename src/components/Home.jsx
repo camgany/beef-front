@@ -21,7 +21,7 @@ import Proveedores from '../tables/Proveedores';
 import Reservas from '../tables/Reservas';
 import TurnosPersonal from '../tables/TurnoPersonal';
 import Ventas from '../tables/Ventas';
-
+import WeatherForecast from '../tables/WeatherForecast'; 
 
 const TabPanel = ({ value, index, children }) => {
   return value === index ? <Box p={3}>{children}</Box> : null;
@@ -39,8 +39,16 @@ const Home = () => {
       <Header />
 
       <Container>
-        <AppBar position="static">
-          <Tabs value={value} onChange={handleChange} aria-label="tabs">
+        <AppBar position="static" sx={{ backgroundColor: '#7b4d0a' }}>
+          <Tabs 
+            value={value} 
+            onChange={handleChange} 
+            aria-label="tabs" 
+            variant="scrollable" 
+            scrollButtons="auto"
+            textColor="inherit" 
+            indicatorColor="secondary" 
+          >
             <Tab label="Cargos" />
             <Tab label="Sucursales" />
             <Tab label="Categorias" />
@@ -61,7 +69,7 @@ const Home = () => {
             <Tab label="Reservas" />
             <Tab label="Turnos Personal" />
             <Tab label="Ventas" />
-            
+            <Tab label="Weather Forecast" /> 
           </Tabs>
         </AppBar>
 
@@ -124,6 +132,10 @@ const Home = () => {
         </TabPanel>
         <TabPanel value={value} index={19}>
           <Ventas />
+        </TabPanel>
+        <TabPanel value={value} index={20}>
+          <WeatherForecast />
+
         </TabPanel>
 
       </Container>

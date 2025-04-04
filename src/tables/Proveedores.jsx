@@ -95,9 +95,15 @@ const Proveedores = () => {
   return (
     <Container>
       <Typography variant="h4" gutterBottom>Proveedores</Typography>
-      <Button variant="contained" onClick={() => handleOpenDialog()}>Añadir Proveedor</Button>
+      <Button
+        variant="contained"
+        sx={{ backgroundColor: "#7b4d0a" }} // Brown color for buttons
+        onClick={() => handleOpenDialog()}
+      >
+        Añadir Proveedor
+      </Button>
 
-      <TableContainer component={Paper} sx={{ mt: 4 }}>
+      <TableContainer component={Paper} sx={{ mt: 4, backgroundColor: "#fae5c6" }}> {/* Cream color for table */}
         <Table>
           <TableHead>
             <TableRow>
@@ -118,10 +124,22 @@ const Proveedores = () => {
                 <TableCell>{proveedor.telefono}</TableCell>
                 <TableCell>{proveedor.estado ? "Activo" : "Inactivo"}</TableCell>
                 <TableCell>
-                  <Button variant="outlined" onClick={() => handleOpenDialog(proveedor)}>
+                  <Button
+                    variant="outlined"
+                    sx={{ color: "#7b4d0a" }} // Brown color for button text
+                    onClick={() => handleOpenDialog(proveedor)}
+                  >
                     Ver / Editar
                   </Button>
-                  <Button variant="contained" color="error" onClick={() => handleDesactivar(proveedor.idProveedor)} sx={{ ml: 1 }}>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    sx={{
+                      ml: 1,
+                      backgroundColor: "#7b4d0a", // Brown color for deactivate button
+                    }}
+                    onClick={() => handleDesactivar(proveedor.idProveedor)}
+                  >
                     Desactivar
                   </Button>
                 </TableCell>
@@ -169,7 +187,12 @@ const Proveedores = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>Cancelar</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button
+            onClick={handleSave}
+            variant="contained"
+            color="primary"
+            sx={{ backgroundColor: "#7b4d0a" }} // Brown color for save button
+          >
             {isEditing ? "Guardar Cambios" : "Añadir"}
           </Button>
         </DialogActions>

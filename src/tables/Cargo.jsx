@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Container, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
-import api from "../axiosConfig";  // Importa tu configuración de Axios
+import api from "../axiosConfig";  
 
 const Cargo = () => {
   const [cargos, setCargos] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [selectedCargo, setSelectedCargo] = useState(null);
   const [formData, setFormData] = useState({ nombreCargo: "", estado: true });
-  const [isCreating, setIsCreating] = useState(false); // Controlador para determinar si estamos creando o editando
+  const [isCreating, setIsCreating] = useState(false); 
 
   useEffect(() => {
     fetchCargos();
@@ -42,8 +42,8 @@ const Cargo = () => {
     try {
       const response = await api.put(`/cargos/${selectedCargo.idCargo}`, cargoData);
       console.log("Cargo modificado:", response.data);
-      fetchCargos();  // Vuelve a obtener la lista de cargos para reflejar los cambios
-      setOpenDialog(false);  // Cierra el modal
+      fetchCargos(); 
+      setOpenDialog(false);  
     } catch (error) {
       console.error("Error al modificar cargo:", error.response?.data || error.message);
     }
@@ -61,8 +61,8 @@ const Cargo = () => {
     try {
       const response = await api.post("/cargos", cargoData);
       console.log("Cargo creado:", response.data);
-      fetchCargos();  // Recargar la lista de cargos
-      setOpenDialog(false);  // Cierra el modal
+      fetchCargos();  
+      setOpenDialog(false);  
     } catch (error) {
       console.error("Error al crear cargo:", error.response?.data || error.message);
     }
@@ -72,10 +72,10 @@ const Cargo = () => {
     if (cargo) {
       setSelectedCargo(cargo);
       setFormData({ nombreCargo: cargo.nombreCargo, estado: cargo.estado });
-      setIsCreating(false); // Si estamos editando, es false
+      setIsCreating(false); 
     } else {
       setFormData({ nombreCargo: "", estado: true });
-      setIsCreating(true); // Si estamos creando, es true
+      setIsCreating(true); 
     }
     setOpenDialog(true);
   };
@@ -89,13 +89,16 @@ const Cargo = () => {
       <Typography variant="h4">Cargos</Typography>
       <Button
         variant="contained"
-        color="primary"
-        onClick={() => handleOpenDialog()} // Abre el formulario para crear un cargo
-        style={{ marginBottom: "20px" }}
+        onClick={() => handleOpenDialog()} 
+        sx={{
+          backgroundColor: '#7b4d0a', 
+          color: 'white', 
+          marginBottom: '20px'
+        }}
       >
         Añadir Cargo
       </Button>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ backgroundColor: '#fae5c6' }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -115,8 +118,11 @@ const Cargo = () => {
                   <TableCell>
                     <Button
                       variant="contained"
-                      color="primary"
                       onClick={() => handleOpenDialog(cargo)}
+                      sx={{
+                        backgroundColor: '#7b4d0a', 
+                        color: 'white'
+                      }}
                     >
                       Modificar
                     </Button>
@@ -151,11 +157,16 @@ const Cargo = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseDialog}>Cancelar</Button>
+          <Button onClick={handleCloseDialog} sx={{ backgroundColor: '#7b4d0a', color: 'white' }}>
+            Cancelar
+          </Button>
           <Button
             onClick={isCreating ? handleCrearCargo : handleModificarCargo}
             variant="contained"
-            color="primary"
+            sx={{
+              backgroundColor: '#7b4d0a', 
+              color: 'white'
+            }}
           >
             {isCreating ? "Crear" : "Guardar"}
           </Button>

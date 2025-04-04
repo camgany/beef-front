@@ -90,14 +90,13 @@ const Compras = () => {
       <Typography variant="h4" gutterBottom>Compras</Typography>
       <Button
         variant="contained"
-        color="primary"
+        style={{ backgroundColor: "#7b4d0a", color: "white", marginBottom: "20px" }} // Marrón para el botón
         onClick={handleCreateNew}
-        style={{ marginBottom: "20px" }}
       >
         Añadir Compra
       </Button>
 
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} style={{ backgroundColor: "#fae5c6" }}> {/* Fondo crema para la tabla */}
         <Table>
           <TableHead>
             <TableRow>
@@ -122,7 +121,7 @@ const Compras = () => {
                 <TableCell>
                   <Button
                     variant="outlined"
-                    color="primary"
+                    style={{ marginRight: "10px", borderColor: "#7b4d0a", color: "#7b4d0a" }} // Marrón para el botón
                     onClick={() => handleEdit(compra.idCompra, compra)}
                   >
                     Editar
@@ -131,7 +130,7 @@ const Compras = () => {
                     variant="outlined"
                     color="secondary"
                     onClick={() => handleDesactivar(compra.idCompra)}
-                    style={{ marginLeft: "10px" }}
+                    style={{ marginLeft: "10px", borderColor: "#7b4d0a", color: "#7b4d0a" }} // Marrón para el botón
                   >
                     Desactivar
                   </Button>
@@ -190,7 +189,11 @@ const Compras = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button
+            onClick={handleSave}
+            variant="contained"
+            style={{ backgroundColor: "#7b4d0a", color: "white" }} 
+          >
             {editMode ? "Guardar Cambios" : "Crear"}
           </Button>
         </DialogActions>

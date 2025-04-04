@@ -58,8 +58,8 @@ const DetallePedido = () => {
         await api.post("/detallepedido", formData);
         alert("Detalle de pedido creado correctamente");
       }
-      fetchDetallePedidos(); 
-      setOpenDialog(false); 
+      fetchDetallePedidos();
+      setOpenDialog(false);
     } catch (error) {
       console.error("Error al guardar detalle de pedido:", error);
       alert("No se pudo guardar el detalle de pedido");
@@ -80,14 +80,13 @@ const DetallePedido = () => {
       <Typography variant="h4" gutterBottom>Detalle de Pedidos</Typography>
       <Button
         variant="contained"
-        color="primary"
+        style={{ marginBottom: "20px", backgroundColor: "#7b4d0a", color: "white" }} // Botón marrón
         onClick={handleCreateNew}
-        style={{ marginBottom: "20px" }}
       >
         Añadir Detalle de Pedido
       </Button>
 
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} style={{ backgroundColor: "#fae5c6" }}> {/* Color crema para la tabla */}
         <Table>
           <TableHead>
             <TableRow>
@@ -112,7 +111,7 @@ const DetallePedido = () => {
                 <TableCell>
                   <Button
                     variant="outlined"
-                    color="primary"
+                    style={{ marginRight: "10px", color: "#7b4d0a", borderColor: "#7b4d0a" }} // Botón marrón
                     onClick={() => handleEdit(detallePedido.idDetalle, detallePedido)}
                   >
                     Editar
@@ -173,8 +172,8 @@ const DetallePedido = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button onClick={() => setOpenDialog(false)} style={{ color: "#7b4d0a" }}>Cancelar</Button>
+          <Button onClick={handleSave} variant="contained" style={{ backgroundColor: "#7b4d0a", color: "white" }}>
             {editMode ? "Guardar Cambios" : "Crear"}
           </Button>
         </DialogActions>

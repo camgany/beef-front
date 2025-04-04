@@ -93,13 +93,19 @@ const Inventario = () => {
     <Container>
       <Stack direction="row" justifyContent="space-between" alignItems="center" my={2}>
         <Typography variant="h4">Inventario</Typography>
-        <Button variant="contained" onClick={() => setAddDialogOpen(true)}>Añadir Inventario</Button>
+        <Button
+          variant="contained"
+          onClick={() => setAddDialogOpen(true)}
+          style={{ backgroundColor: "#7b4d0a" }} // Marrón para el botón
+        >
+          Añadir Inventario
+        </Button>
       </Stack>
 
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
-            <TableRow>
+            <TableRow style={{ backgroundColor: "#fae5c6" }}> {/* Crema para el fondo de las celdas */}
               <TableCell>ID</TableCell>
               <TableCell>ID Sucursal</TableCell>
               <TableCell>ID Producto</TableCell>
@@ -111,7 +117,7 @@ const Inventario = () => {
           </TableHead>
           <TableBody>
             {inventarios.map((inv) => (
-              <TableRow key={inv.idInventario}>
+              <TableRow key={inv.idInventario} style={{ backgroundColor: "#fae5c6" }}> {/* Crema para las filas */}
                 <TableCell>{inv.idInventario}</TableCell>
                 <TableCell>{inv.idSucursal}</TableCell>
                 <TableCell>{inv.idProducto}</TableCell>
@@ -119,12 +125,19 @@ const Inventario = () => {
                 <TableCell>{inv.fechaRegistro}</TableCell>
                 <TableCell>{inv.estado ? "Activo" : "Inactivo"}</TableCell>
                 <TableCell>
-                  <Button variant="outlined" onClick={() => handleEdit(inv)}>Editar</Button>
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleEdit(inv)}
+                    style={{ marginRight: 10 }}
+                  >
+                    Editar
+                  </Button>
                   <Button
                     variant="contained"
                     color="error"
                     onClick={() => handleDesactivar(inv.idInventario)}
                     sx={{ ml: 1 }}
+                    style={{ backgroundColor: "#7b4d0a" }} // Marrón para el botón de desactivación
                   >
                     Desactivar
                   </Button>

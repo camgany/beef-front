@@ -92,36 +92,48 @@ const Mesas = () => {
     <Container>
       <Stack direction="row" justifyContent="space-between" alignItems="center" my={2}>
         <Typography variant="h4">Mesas</Typography>
-        <Button variant="contained" onClick={() => setAddDialogOpen(true)}>Añadir Mesa</Button>
+        <Button 
+          variant="contained" 
+          onClick={() => setAddDialogOpen(true)} 
+          sx={{ backgroundColor: '#7B4D0A', '&:hover': { backgroundColor: '#6A3B08' } }}
+        >
+          Añadir Mesa
+        </Button>
       </Stack>
 
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>ID Sucursal</TableCell>
-              <TableCell>Número de Mesa</TableCell>
-              <TableCell>Capacidad</TableCell>
-              <TableCell>Estado</TableCell>
-              <TableCell>Acciones</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>ID</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>ID Sucursal</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Número de Mesa</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Capacidad</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Estado</TableCell>
+              <TableCell sx={{ backgroundColor: '#FAE5C6' }}>Acciones</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {mesas.map((mesa) => (
               <TableRow key={mesa.idMesa}>
-                <TableCell>{mesa.idMesa}</TableCell>
-                <TableCell>{mesa.idSucursal}</TableCell>
-                <TableCell>{mesa.numeroMesa}</TableCell>
-                <TableCell>{mesa.capacidad}</TableCell>
-                <TableCell>{mesa.estadoMesa}</TableCell>
-                <TableCell>
-                  <Button variant="outlined" onClick={() => handleEdit(mesa)}>Editar</Button>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{mesa.idMesa}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{mesa.idSucursal}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{mesa.numeroMesa}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{mesa.capacidad}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>{mesa.estadoMesa}</TableCell>
+                <TableCell sx={{ backgroundColor: '#FAE5C6' }}>
+                  <Button 
+                    variant="outlined" 
+                    onClick={() => handleEdit(mesa)} 
+                    sx={{ marginRight: 1 }}
+                  >
+                    Editar
+                  </Button>
                   <Button
                     variant="contained"
                     color="error"
                     onClick={() => handleDesactivar(mesa.idMesa)}
-                    sx={{ ml: 1 }}
+                    sx={{ ml: 1, backgroundColor: '#7B4D0A', '&:hover': { backgroundColor: '#6A3B08' } }}
                   >
                     Desactivar
                   </Button>
